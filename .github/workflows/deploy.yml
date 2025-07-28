@@ -24,9 +24,14 @@ jobs:
       - name: Install Dependencies
         run: npm install
 
+      # ДОБАВЛЕН ШАГ СБОРКИ: Эта команда создает папку `dist` с вашим приложением
+      - name: Build
+        run: npm run build
+
       - name: Publish to Cloudflare Pages
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: 406c5c2032bbebae02b71eb00f079784
-          projectName: service-desk # <-- ДОБАВЛЕНО: Укажите имя вашего проекта Cloudflare Pages
+          projectName: service-desk
+          directory: dist # <-- ДОБАВЛЕНО: Явно указываем wrangler, какую папку развертывать
