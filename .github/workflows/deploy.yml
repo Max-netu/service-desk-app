@@ -21,16 +21,12 @@ jobs:
         with:
           node-version: '18'
           cache: 'npm'
-          cache-dependency-path: Service/package-lock.json
 
       - name: Install Dependencies
         run: npm install
-        working-directory: ./Service # <-- Указываем, что npm install нужно запустить в папке Service
 
       - name: Publish to Cloudflare Pages
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: 406c5c2032bbebae02b71eb00f079784
-          command: deploy
-          workingDirectory: Service # <-- Указываем, что wrangler должен работать из папки Service
