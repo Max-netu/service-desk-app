@@ -29,3 +29,4 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: 406c5c2032bbebae02b71eb00f079784
+          projectName: service-desk # <-- ДОБАВЛЕНО: Укажите имя вашего проекта Cloudflare Pages
