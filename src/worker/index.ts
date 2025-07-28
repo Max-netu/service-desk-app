@@ -25,7 +25,6 @@ declare module 'hono' {
 const app = new Hono<{ Bindings: Env }>();
 
 // JWT Configuration
-const JWT_SECRET = 'your-secret-key-change-in-production';
 const JWT_COOKIE_NAME = 'auth_token';
 
 // Web Crypto API utilities for Cloudflare Workers
